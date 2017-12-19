@@ -2,7 +2,7 @@
   "name": "ng-vehicle-registration-form",
   "version": "0.0.0",
   "license": "MIT",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/isaacchacon/NgVehicleRegistrationForm"
   },
@@ -14,7 +14,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.4.5",
@@ -31,8 +30,8 @@
     "@angular/platform-server": "^4.4.5",
     "@angular/router": "^4.4.5",
     "core-js": "^2.4.1",
-    "ng-tax-share-point-web-services-module": "^0.1.0",
-    "reactive-people-picker-angular-material": "^1.0.1",
+    "ng-tax-share-point-web-services-module": "^1.0.0",
+    "reactive-people-picker-angular-material": "^1.0.2",
     "rxjs": "^5.4.2",
     "typescript": "^2.5.3",
     "zone.js": "^0.8.14"

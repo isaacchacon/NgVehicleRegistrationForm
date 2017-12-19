@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import {HttpClientModule} from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTooltipModule} from '@angular/material';
@@ -20,7 +20,7 @@ import {ReactivePeoplePickerModule} from 'reactive-people-picker-angular-materia
 import { VehicleRegistrationReactiveComponent }  from './vehicle-registration-reactive.component';
 
 @NgModule({
-  imports:      [ BrowserModule,BrowserAnimationsModule,HttpModule,ReactiveFormsModule,
+  imports:      [ BrowserModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule,
 					NgTaxServices.forRoot(),MatTooltipModule, ReactivePeoplePickerModule],
   declarations: [ VehicleRegistrationReactiveComponent,NestedReactiveComponent],
   bootstrap:    [ VehicleRegistrationReactiveComponent ],
