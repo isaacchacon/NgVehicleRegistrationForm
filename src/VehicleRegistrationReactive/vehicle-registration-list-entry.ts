@@ -1,4 +1,5 @@
 import {SharepointListItem} from 'ng-tax-share-point-web-services-module';
+import {environment} from '../environments/environment';
 declare var $:any;
 
 
@@ -24,7 +25,7 @@ constructor(rawResponse?:any){
 	}
 	///user profile service always run on root web .
 	getSiteUrl():string{
-		return '/forms/VehicleRegistration/';
+		return environment.baseUrl+'/forms/VehicleRegistration/';
 	}
 	getListName():string{
 		return 'VehicleRegistration2';

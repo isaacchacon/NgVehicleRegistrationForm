@@ -13,6 +13,8 @@ import {TaxPeoplePickerComponent} from 'reactive-people-picker-angular-material'
 import {VehicleRegistrationBusiness} from './vehicle-registration-business';
 import {VehicleRegistrationListItem} from './vehicle-registration-list-entry';
 
+import {environment} from '../environments/environment';
+
 
 @Component({
     selector: 'vehicle-registration-reactive',
@@ -141,7 +143,7 @@ import {VehicleRegistrationListItem} from './vehicle-registration-list-entry';
 		<form [formGroup]="vehicleFormData" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()" novalidate>
 		<div class="SpTaxGeneral">
 			<div class="InlineDiv" style="width:20%;">
-				<img id="imgTax" src="/siteassets/img/odtlogo.jpg" alt="Tax Logo" />
+				<img id="imgTax" [attr.src]="getEnvUrl()+'/siteassets/img/odtlogo.jpg'" alt="Tax Logo" />
 			</div>
 			<div class="InlineDiv" style="float:right;text-align:right;vertical-align:top;width:78%;">
 					<div class="SpTaxFormTitle"> 
@@ -162,7 +164,7 @@ import {VehicleRegistrationListItem} from './vehicle-registration-list-entry';
 					<div class="form-group taxNoOverflow">
 						<label class="control-label col-sm-4"  for="TaxVehiclePicker" >Employee Name: </label>
 						<div class="col-sm-8"  >
-							<people-picker (onPeoplePicked)="peoplePickedEventHandler($event);" controlId="TaxVehiclePicker" [requiredMessage]="validationMessages.EmployeePerson.required" [group]="vehicleFormData.get('EmployeePerson')"></people-picker>
+							<people-picker (onPeoplePicked)="peoplePickedEventHandler($event);" controlId="TaxVehiclePicker" [group]="vehicleFormData.get('EmployeePerson')"></people-picker>
 						</div>
 					</div>
 					<div class="form-group">
@@ -388,7 +390,9 @@ export class VehicleRegistrationReactiveComponent implements OnInit {
 	thinking: boolean = false;
 	idSubmitted: string ='';
 
-
+	getEnvUrl(){
+		return environment.baseUrl;
+	}
 	constructor(private fb:FormBuilder, 
 				private sharepointListsWebService:SharepointListsWebService,
 				private sharePointUserProfileService:SharePointUserProfileWebService,
@@ -418,7 +422,7 @@ export class VehicleRegistrationReactiveComponent implements OnInit {
 	createForm() {
 		this.vehicleFormData = this.fb.group({
 		ID: {value: '', disabled: true},
-		  EmployeePerson: TaxPeoplePickerComponent.buildItem(),
+		  EmployeePerson: TaxPeoplePickerComponent.buildItem(true),
 		  EmployeeNumber:  this.fb.group({insideTextbox:['', Validators.required]}),
 		  EmployeePhone:  ['',     Validators.required],
 		  EmployeeEmail:  ['', 	   Validators.required],
